@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maria Júlia Alves Lima 💜</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 40px;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      max-width: 600px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .heart {
+      font-size: 5rem;
+      animation: pulse 1s infinite;
+    }
+
+    button {
+      background: white;
+      color: #ff4f81;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      background: #ffe6ee;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .floating-heart {
+      position: absolute;
+      color: rgba(255,255,255,0.7);
+      animation: float 6s linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="heart">❤️</div>
+    <h1>Para o Amor da Minha Vida, Majuh 😍</h1>
+    <p>
+      Nos dias simples da minha vida, você os torna especiais.
+      Nos dias tristes, você transforma tristezas em sorrisos.
+      Nos dias em que não tenho propósito, você é minha direção.
+      Nos dias em que me sinto insuficiente, você segura minha mão.
+      Meu único objetivo como ser humano é caminhar pela vida segurando a sua mão...
+    </p>
+
+    <button onclick="mostrarMensagem()">Clique aqui ❤️</button>
+
+    <div class="message" id="mensagem">
+      Eu te amo infinitamente. 💙🥰😍
+    </div>
+  </div>
+
+  <script>
+    function mostrarMensagem() {
+      document.getElementById('mensagem').classList.add('show');
+    }
+
+    function criarCoracao() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(criarCoracao, 300);
+  </script>
+
+</body>
+</html>
